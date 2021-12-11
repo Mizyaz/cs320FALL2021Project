@@ -3,11 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/blankFragment">
+    app:startDestination="@id/mainTasksPageFragment">
 
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.example.android.navigation.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/mainTasksPageFragment"
+        android:name="com.example.android.navigation.MainTasksPageFragment"
+        android:label="fragment_main_tasks_page_list"
+        tools:layout="@layout/fragment_main_tasks_page_list" >
+        <action
+            android:id="@+id/action_mainTasksPageFragment_to_individualTaskPage"
+            app:destination="@id/individualTaskPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.android.navigation.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/individualTaskPage"
+        android:name="com.example.android.navigation.IndividualTaskPage"
+        android:label="individual_task_page_fragment"
+        tools:layout="@layout/individual_task_page_fragment" />
 </navigation>
