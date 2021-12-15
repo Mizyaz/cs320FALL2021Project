@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">CS394 Project 1</string>
+    <string name="app_name">PRE</string>
     <string name="position">Position</string>
     <string name="about">About</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -25,11 +25,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="prompt_password">Password</string>
-    <string name="button">Meals</string>
-    <string name="button2">Specials</string>
-    <string name="button3">Desserts</string>
-    <string name="button4">Beverages</string>
-    <string name="about_text">This app is an adjustable digital menu app for restaurants.</string>
+    <string name="about_text" />
     <string name="about_button">About</string>
     <string name="settings_button">Settings</string>
     <!-- Preference Titles -->
