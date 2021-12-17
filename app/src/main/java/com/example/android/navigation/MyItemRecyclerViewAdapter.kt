@@ -10,7 +10,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import com.example.android.navigation.placeholder.PlaceholderContent.PlaceholderItem
-import com.example.android.navigation.databinding.FragmentMainTasksPageBinding
 
 class MyItemRecyclerViewAdapter(
     private val values: List<PlaceholderItem>

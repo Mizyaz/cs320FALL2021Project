@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.android.navigation.placeholder.PlaceholderContent
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * A fragment representing a list of Items.
@@ -25,15 +26,16 @@ class MainTasksPageFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
+
         val view = inflater.inflate(R.layout.fragment_main_tasks_page_list, container, false)
+        val recycler : RecyclerView = view.findViewById(R.id.recycler_view)
+        val fab : FloatingActionButton = view.findViewById(R.id.floating_action_button)
 
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
+        if (recycler is RecyclerView) {
+            with(recycler) {
                 layoutManager = when {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
@@ -41,7 +43,16 @@ class MainTasksPageFragment : Fragment() {
                 adapter = MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
             }
         }
+
+        fab.setOnClickListener {
+            addTask()
+        }
+
         return view
+    }
+
+    private fun addTask() {
+        TODO("Not yet implemented")
     }
 
     companion object {
