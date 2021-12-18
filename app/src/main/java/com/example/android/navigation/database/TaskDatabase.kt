@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.database
+package com.example.android.navigation.database
 
 import android.content.Context
 import androidx.room.Database

@@ -6,15 +6,10 @@
     app:startDestination="@id/mainTasksPageFragment">
 
     <fragment
-        android:id="@+id/blankFragment"
-        android:name="com.example.android.navigation.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
-    <fragment
         android:id="@+id/mainTasksPageFragment"
-        android:name="com.example.android.navigation.MainTasksPageFragment"
+        android:name="com.example.android.navigation.mainTasksPage.MainTasksPageFragment"
         android:label="fragment_main_tasks_page_list"
-        tools:layout="@layout/fragment_main_tasks_page_list" >
+        tools:layout="@layout/fragment_main_tasks_page" >
         <action
             android:id="@+id/action_mainTasksPageFragment_to_individualTaskPage"
             app:destination="@id/individualTaskPage" />

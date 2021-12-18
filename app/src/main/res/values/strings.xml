@@ -28,6 +28,9 @@
     <string name="about_text" />
     <string name="about_button">About</string>
     <string name="settings_button">Settings</string>
+
+    <string name="data">Here are your tasks</string>
+    <string name="descryption">Descryption: </string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>

@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
-package com.example.android.trackmysleepquality.database
+package com.example.android.navigation.database
 
+import android.text.Html
+import android.text.Spanned
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.android.navigation.formatTask
 
 
 @Entity(tableName = "MOCK_DATA")
@@ -26,12 +29,10 @@ data class Task(
         @PrimaryKey(autoGenerate = true)
         var Id: Long = 0L,
 
-        @ColumnInfo(name = "placeholder")
-        var common_name: String = " ",
+        @ColumnInfo(name = "descryption")
+        var Descryption: String = " ",
 
-        @ColumnInfo(name = "placeholder2")
-        var family: String = " ",
-
-        @ColumnInfo(name = "placeholder3")
-        var scientific_name: String = " "
 )
+{
+        fun toHTMLString(): Spanned = formatTask(this)
+}
