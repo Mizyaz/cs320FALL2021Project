@@ -2,6 +2,7 @@ package com.example.android.navigation.individualTaskPage
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.navigation.database.Task
@@ -10,36 +11,44 @@ import kotlinx.coroutines.launch
 
 class IndividualTaskPageViewModel(
     val database: TaskDatabaseDao,
-    application: Application
+    application: Application, key: Long
     ) : AndroidViewModel(application) {
 
-    var text : String? = "task name"
+    val task : Task
+    var text : String
 
-    fun getCurrentTaskDescription(key : Long): String? {
 
-        viewModelScope.launch {
-            val task = get(key)
-            text = task?.Descryption
+    init {
 
-        }
-
-        return text
+        task = database.get(key)!!
+        text = task.Descryption
 
     }
 
-    private suspend fun insert(task: Task) {
+    private fun insert(task: Task) {
         database.insert(task)
     }
 
-    private suspend fun update(task: Task) {
+    private fun update(task: Task) {
         database.update(task)
     }
 
-    private suspend fun clear() {
+    private fun clear() {
         database.clear()
     }
 
-    private suspend fun get(key : Long): Task? {
+    private fun get(key : Long): Task? {
         return database.get(key)
     }
+
+    private fun remove(key: Long){
+        database.remove(key)
+    }
+
+    fun onClickRemove(){
+
+        remove(task.Id)
+
+    }
+
 }

@@ -9,11 +9,11 @@ import com.example.android.navigation.mainTasksPage.MainTasksPageFragmentViewMod
 
 class IndividualTaskPageViewModelFactory(
     private val dataSource: TaskDatabaseDao,
-    private val application: Application) : ViewModelProvider.Factory {
+    private val application: Application, private val key: Long) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(IndividualTaskPageViewModel::class.java)) {
-            return IndividualTaskPageViewModel(dataSource, application) as T
+            return IndividualTaskPageViewModel(dataSource, application, key) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

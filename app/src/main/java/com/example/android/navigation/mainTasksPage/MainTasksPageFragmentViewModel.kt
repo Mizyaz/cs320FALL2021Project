@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.android.navigation.database.Task
 import com.example.android.navigation.database.TaskDatabaseDao
-import com.example.android.navigation.formatTasks
 import kotlinx.coroutines.launch
 
 class MainTasksPageFragmentViewModel(
@@ -26,17 +25,17 @@ class MainTasksPageFragmentViewModel(
         }
     }
 
-    private suspend fun getCurrentTaskFromDatabase(): Task? {
+    private fun getCurrentTaskFromDatabase(): Task? {
         val task = database.getCurrentTask()
 
         return task
     }
 
-    private suspend fun insert(task: Task) {
+    private fun insert(task: Task) {
         database.insert(task)
     }
 
-    private suspend fun update(task: Task) {
+    private fun update(task: Task) {
         database.update(task)
     }
 
@@ -44,13 +43,12 @@ class MainTasksPageFragmentViewModel(
         database.clear()
     }
 
-    fun onClickFAB() {
+    fun onClickFAB(textInput: String) {
         viewModelScope.launch {
-            // Create a new night, which captures the current time,
-            // and insert it into the database.
+
             val newTask = Task()
 
-            newTask.Descryption = "ssssssssss"
+            newTask.Descryption = textInput
 
             insert(newTask)
 

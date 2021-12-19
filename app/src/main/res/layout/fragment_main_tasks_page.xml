@@ -47,14 +47,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/taskList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="376dp"
+            android:layout_height="333dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/fragment_main_tasks_page_list_item"/>
+            app:layout_constraintVertical_bias="0.675"
+            tools:listitem="@layout/fragment_main_tasks_page_list_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
@@ -85,6 +86,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.976"
             app:srcCompat="@drawable/logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input"
+            android:layout_width="375dp"
+            android:layout_height="93dp"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:hint="@string/task_input_hint" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

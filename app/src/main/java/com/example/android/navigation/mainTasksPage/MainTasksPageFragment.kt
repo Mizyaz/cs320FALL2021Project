@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.navigation.R
 import com.example.android.navigation.database.TaskDatabase
 import com.example.android.navigation.databinding.FragmentMainTasksPageBinding
-import com.example.android.navigation.databinding.FragmentMainTasksPageBindingImpl
 
 /**
  * A fragment representing a list of Items.
@@ -52,8 +52,9 @@ class MainTasksPageFragment : Fragment() {
 
         fab.setOnClickListener {
 
-            mainTasksPageFragmentViewModel.onClickFAB()
-
+            val editText : EditText? = binding.textInput.editText
+            mainTasksPageFragmentViewModel.onClickFAB(editText?.text.toString())
+            editText?.setText(" ")
         }
 
         val fab2 = binding.floatingActionButton2

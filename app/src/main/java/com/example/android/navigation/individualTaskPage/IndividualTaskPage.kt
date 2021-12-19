@@ -29,7 +29,7 @@ class IndividualTaskPage : Fragment() {
         // Create an instance of the ViewModel Factory.
         val dataSource = TaskDatabase.getInstance(application).taskDatabaseDao
 
-        val viewModelFactory = IndividualTaskPageViewModelFactory(dataSource, application)
+        val viewModelFactory = IndividualTaskPageViewModelFactory(dataSource, application, args.taskId.toLong())
 
         // Get a reference to the ViewModel associated with this fragment.
         val individualTaskPageViewModel =
@@ -38,13 +38,17 @@ class IndividualTaskPage : Fragment() {
 
         binding.individualTaskViewModel = individualTaskPageViewModel
 
-        val currentTaskDescription : String? = individualTaskPageViewModel.getCurrentTaskDescription(args.taskId.toLong())
+        val currentTaskDescription : String = individualTaskPageViewModel.text
 
         Log.d("TAG", args.taskId)
         currentTaskDescription.let {
-            if (it != null) {
-                Log.d("TAG", it)
-            }
+            Log.d("TAG", it)
+        }
+
+        binding.remove.setOnClickListener {
+
+            individualTaskPageViewModel.onClickRemove()
+
         }
 
         return binding.root

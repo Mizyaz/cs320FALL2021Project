@@ -30,7 +30,7 @@ import androidx.room.Update
 interface TaskDatabaseDao {
 
     @Insert
-    suspend fun insert(task: Task)
+    fun insert(task: Task)
 
     /**
      * When updating a row with a value already set in a column,
@@ -39,7 +39,7 @@ interface TaskDatabaseDao {
      * @param task new value to write
      */
     @Update
-    suspend  fun update(task: Task)
+    fun update(task: Task)
 
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
@@ -47,14 +47,14 @@ interface TaskDatabaseDao {
      * @param key index to match
      */
     @Query("SELECT * from MOCK_DATA WHERE Id = :key")
-    suspend fun get(key: Long): Task?
+    fun get(key: Long): Task?
     /**
      * Deletes all values from the table.
      *
      * This does not delete the table, only its contents.
      */
     @Query("DELETE FROM MOCK_DATA")
-    suspend fun clear()
+    fun clear()
 
     /**
      * Selects and returns all rows in the table,
@@ -68,5 +68,8 @@ interface TaskDatabaseDao {
      * Selects and returns the latest task.
      */
     @Query("SELECT * FROM MOCK_DATA ORDER BY Id DESC LIMIT 1")
-    suspend fun getCurrentTask(): Task?
+    fun getCurrentTask(): Task?
+
+    @Query("DELETE FROM MOCK_DATA WHERE Id = :key")
+    fun remove(key: Long)
 }

@@ -48,5 +48,6 @@
     <string name="extended_fab_content_desc">add new task</string>
     <string name="extended_fab_label">add task</string>
     <string name="fab_content_desc">add task</string>
+    <string name="task_input_hint">enter a task descryption</string>
 
 </resources>
