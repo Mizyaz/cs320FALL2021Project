@@ -58,6 +58,12 @@ class MainTasksPageFragmentViewModel(
         }
     }
 
+    fun onClickFAB2() {
+        viewModelScope.launch {
+            onClear()
+        }
+    }
+
     /**
      * Executes when the CLEAR button is clicked.
      */

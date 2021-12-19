@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context="com.example.android.navigation.MainActivity"
     android:name="com.example.android.navigation.IndividualTaskPageFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <data>
+
+        <variable
+            name="individualTaskViewModel"
+            type="com.example.android.navigation.individualTaskPage.IndividualTaskPageViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="498dp"
@@ -105,10 +106,10 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="366dp"
                 android:layout_height="72dp"
-                android:text="Task Name"
+                android:text="@{individualTaskViewModel.text}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</layout>

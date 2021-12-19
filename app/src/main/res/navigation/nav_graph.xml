@@ -20,7 +20,13 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/individualTaskPage"
-        android:name="com.example.android.navigation.IndividualTaskPage"
+        android:name="com.example.android.navigation.individualTaskPage.IndividualTaskPage"
         android:label="individual_task_page_fragment"
-        tools:layout="@layout/individual_task_page_fragment" />
+        tools:layout="@layout/individual_task_page_fragment" >
+
+        <argument
+            android:name="taskId"
+            app:argType="string" />
+
+    </fragment>
 </navigation>

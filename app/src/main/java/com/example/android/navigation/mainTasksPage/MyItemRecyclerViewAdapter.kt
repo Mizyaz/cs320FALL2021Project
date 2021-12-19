@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.android.navigation.R
 import com.example.android.navigation.database.Task
 import com.example.android.navigation.databinding.FragmentMainTasksPageListItemBinding
+import com.google.android.play.core.splitinstall.d
 
 
 class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.database.Task, MyItemRecyclerViewAdapter.ViewHolder>(SleepNightDiffCallback()) {
@@ -21,7 +22,17 @@ class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.dat
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
+
+        val holder = ViewHolder.from(parent)
+
+        holder.itemView.setOnClickListener{ view ->
+
+            val direction = MainTasksPageFragmentDirections.actionMainTasksPageFragmentToIndividualTaskPage(holder.binding.task?.Id.toString())
+            view.findNavController().navigate(direction)
+
+        }
+
+        return holder
     }
 
     class ViewHolder private constructor(val binding: FragmentMainTasksPageListItemBinding) : RecyclerView.ViewHolder(binding.root){

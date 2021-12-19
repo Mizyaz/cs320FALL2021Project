@@ -56,6 +56,14 @@ class MainTasksPageFragment : Fragment() {
 
         }
 
+        val fab2 = binding.floatingActionButton2
+
+        fab2.setOnClickListener {
+
+            mainTasksPageFragmentViewModel.onClickFAB2()
+
+        }
+
         val manager = GridLayoutManager(activity, 1)
         binding.taskList.layoutManager = manager
 
