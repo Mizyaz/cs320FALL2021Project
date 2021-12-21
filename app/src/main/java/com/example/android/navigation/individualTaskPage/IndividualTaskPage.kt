@@ -16,12 +16,13 @@ import com.example.android.navigation.databinding.IndividualTaskPageFragmentBind
 class IndividualTaskPage : Fragment() {
 
     private val args: IndividualTaskPageArgs by navArgs()
+    lateinit var binding: IndividualTaskPageFragmentBinding;
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: IndividualTaskPageFragmentBinding = DataBindingUtil.inflate(
+        binding= DataBindingUtil.inflate(
                 inflater, R.layout.individual_task_page_fragment, container, false)
 
         val application = requireNotNull(this.activity).application
@@ -74,9 +75,21 @@ class IndividualTaskPage : Fragment() {
             individualTaskPageViewModel.onAddPriority("light")
 
         }
+        binding.importanceLevelButton.setOnClickListener{
+            binding.light.visibility = View.VISIBLE
+            binding.normal.visibility = View.VISIBLE
+            binding.important.visibility = View.VISIBLE
+        }
 
         return binding.root
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.light.visibility = View.INVISIBLE
+        binding.normal.visibility = View.INVISIBLE
+        binding.important.visibility = View.INVISIBLE
     }
 
 

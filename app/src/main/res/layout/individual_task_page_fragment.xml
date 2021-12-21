@@ -50,29 +50,48 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:orientation="horizontal">
+                android:layout_height="80dp"
+                android:orientation="vertical">
 
+                <Button
+                    android:id="@+id/importance_level_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="Add Importance Level"
+                    android:background="#03A9F4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
                 <Button
                     android:id="@+id/light"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="light" />
+                    android:layout_weight="2"
+                    android:background="#FFEB3B"
+                    android:text="light"
+                    android:visibility="invisible" />
 
                 <Button
                     android:id="@+id/normal"
                     android:layout_width="wrap_content"
-                    android:layout_height="87dp"
-                    android:layout_weight="1"
-                    android:text="normal" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="normal"
+                    android:background="#4CAF50"
+                    android:visibility="invisible"/>
 
                 <Button
                     android:id="@+id/important"
                     android:layout_width="wrap_content"
-                    android:layout_height="87dp"
-                    android:layout_weight="1"
-                    android:text="important" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="important"
+                    android:background="#F44336"
+                    android:visibility="invisible"/>
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
