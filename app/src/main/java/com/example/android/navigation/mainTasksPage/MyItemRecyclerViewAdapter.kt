@@ -14,7 +14,7 @@ import com.example.android.navigation.databinding.FragmentMainTasksPageListItemB
 import com.google.android.play.core.splitinstall.d
 
 
-class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.database.Task, MyItemRecyclerViewAdapter.ViewHolder>(SleepNightDiffCallback()) {
+class MyItemRecyclerViewAdapter : ListAdapter<Task, MyItemRecyclerViewAdapter.ViewHolder>(SleepNightDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
@@ -37,9 +37,8 @@ class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.dat
 
     class ViewHolder private constructor(val binding: FragmentMainTasksPageListItemBinding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: com.example.android.navigation.database.Task) {
+        fun bind(item: Task) {
             binding.task = item
-            binding.displayButton.setOnClickListener()
             binding.executePendingBindings()
         }
 

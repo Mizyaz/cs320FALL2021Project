@@ -75,6 +75,8 @@ class IndividualTaskPage : Fragment() {
 
         }
 
+        return binding.root
+
     }
 
 
