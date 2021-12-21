@@ -25,7 +25,7 @@ class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.dat
 
         val holder = ViewHolder.from(parent)
 
-        holder.itemView.setOnClickListener{ view ->
+        holder.binding.displayButton.setOnClickListener{ view ->
 
             val direction = MainTasksPageFragmentDirections.actionMainTasksPageFragmentToIndividualTaskPage(holder.binding.task?.Id.toString())
             view.findNavController().navigate(direction)
@@ -39,6 +39,7 @@ class MyItemRecyclerViewAdapter : ListAdapter<com.example.android.navigation.dat
 
         fun bind(item: com.example.android.navigation.database.Task) {
             binding.task = item
+            binding.displayButton.setOnClickListener()
             binding.executePendingBindings()
         }
 

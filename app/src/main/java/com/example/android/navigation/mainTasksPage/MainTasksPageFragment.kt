@@ -90,6 +90,8 @@ class MainTasksPageFragment : Fragment() {
         val manager = GridLayoutManager(activity, 1)
         binding.taskList.layoutManager = manager
 
+
+
         return binding.root
     }
 
