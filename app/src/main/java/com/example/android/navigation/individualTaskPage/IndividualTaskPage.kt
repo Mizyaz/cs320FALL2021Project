@@ -57,9 +57,21 @@ class IndividualTaskPage : Fragment() {
 
         }
 
-        binding.addPriority.setOnClickListener {
+        binding.important.setOnClickListener {
 
-            individualTaskPageViewModel.onAddPriority()
+            individualTaskPageViewModel.onAddPriority("important")
+
+        }
+
+        binding.normal.setOnClickListener {
+
+            individualTaskPageViewModel.onAddPriority("normal")
+
+        }
+
+        binding.light.setOnClickListener {
+
+            individualTaskPageViewModel.onAddPriority("light")
 
         }
 
