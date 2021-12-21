@@ -47,16 +47,14 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/taskList"
-            android:layout_width="376dp"
-            android:layout_height="333dp"
+            android:layout_width="398dp"
+            android:layout_height="271dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.675"
+            app:layout_constraintVertical_bias="0.688"
             tools:listitem="@layout/fragment_main_tasks_page_list_item" />
-
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_task"
@@ -64,13 +62,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginBottom="44dp"
             android:contentDescription="@string/fab_content_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.397"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.29"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/text_input"
             app:srcCompat="@android:drawable/ic_input_add" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -79,13 +78,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="57dp"
             android:contentDescription="@string/fab_content_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.563"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.285"
+            app:layout_constraintHorizontal_bias="0.186"
+            app:layout_constraintStart_toEndOf="@+id/add_task"
+            app:layout_constraintTop_toBottomOf="@+id/text_input"
+            app:layout_constraintVertical_bias="0.512"
             app:srcCompat="@android:drawable/ic_delete" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -94,13 +96,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginBottom="57dp"
             android:contentDescription="@string/fab_content_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.214"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.291"
+            app:layout_constraintTop_toBottomOf="@+id/text_input"
             app:srcCompat="@android:drawable/ic_dialog_alert" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -109,13 +111,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginBottom="57dp"
             android:contentDescription="@string/fab_content_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
+            app:layout_constraintEnd_toStartOf="@+id/filterByImportance"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.291"
+            app:layout_constraintTop_toBottomOf="@+id/text_input"
             app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -132,6 +134,19 @@
                 android:layout_height="96dp"
                 android:hint="@string/task_input_hint" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/taskList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayAllTasks" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

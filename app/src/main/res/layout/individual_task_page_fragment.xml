@@ -48,14 +48,32 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
-            <Button
-                android:id="@+id/addPriority"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="78dp"
-                android:backgroundTint="#BBBDE1"
-                android:rotationX="-2"
-                android:text="Add Priority Level"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:layout_height="87dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="light" />
+
+                <Button
+                    android:id="@+id/normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="87dp"
+                    android:layout_weight="1"
+                    android:text="normal" />
+
+                <Button
+                    android:id="@+id/important"
+                    android:layout_width="wrap_content"
+                    android:layout_height="87dp"
+                    android:layout_weight="1"
+                    android:text="important" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="496dp"

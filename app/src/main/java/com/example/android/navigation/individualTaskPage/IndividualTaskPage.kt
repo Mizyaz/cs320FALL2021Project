@@ -22,7 +22,7 @@ class IndividualTaskPage : Fragment() {
 
         // Get a reference to the binding object and inflate the fragment views.
         val binding: IndividualTaskPageFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.individual_task_page_fragment, container, false)
+                inflater, R.layout.individual_task_page_fragment, container, false)
 
         val application = requireNotNull(this.activity).application
 
@@ -33,8 +33,8 @@ class IndividualTaskPage : Fragment() {
 
         // Get a reference to the ViewModel associated with this fragment.
         val individualTaskPageViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(IndividualTaskPageViewModel::class.java)
+                ViewModelProvider(
+                        this, viewModelFactory).get(IndividualTaskPageViewModel::class.java)
 
         binding.individualTaskViewModel = individualTaskPageViewModel
 
@@ -57,9 +57,21 @@ class IndividualTaskPage : Fragment() {
 
         }
 
-        binding.addPriority.setOnClickListener {
+        binding.important.setOnClickListener {
 
-            individualTaskPageViewModel.onAddPriority()
+            individualTaskPageViewModel.onAddPriority("important")
+
+        }
+
+        binding.normal.setOnClickListener {
+
+            individualTaskPageViewModel.onAddPriority("normal")
+
+        }
+
+        binding.light.setOnClickListener {
+
+            individualTaskPageViewModel.onAddPriority("light")
 
         }
 
