@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">CS394 Project 1</string>
+    <string name="app_name">PRE</string>
     <string name="position">Position</string>
     <string name="about">About</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -25,13 +25,12 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="prompt_password">Password</string>
-    <string name="button">Meals</string>
-    <string name="button2">Specials</string>
-    <string name="button3">Desserts</string>
-    <string name="button4">Beverages</string>
-    <string name="about_text">This app is an adjustable digital menu app for restaurants.</string>
+    <string name="about_text" />
     <string name="about_button">About</string>
     <string name="settings_button">Settings</string>
+
+    <string name="data">Here are your tasks</string>
+    <string name="descryption">Descryption: </string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -46,5 +45,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="extended_fab_content_desc">add new task</string>
+    <string name="extended_fab_label">add task</string>
+    <string name="fab_content_desc">add task</string>
+    <string name="task_input_hint">enter a task descryption</string>
 
 </resources>

@@ -1,13 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".IndividualTaskPage">
+    tools:context="com.example.android.navigation.MainActivity"
+    android:name="com.example.android.navigation.IndividualTaskPageFragment">
 
-    <TextView
-        android:layout_width="match_parent"
+    <data>
+
+        <variable
+            name="individualTaskViewModel"
+            type="com.example.android.navigation.individualTaskPage.IndividualTaskPageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="498dp"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:animationCache="true"
+        android:background="#8777B1">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="101dp"
+            android:layout_height="121dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="173dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="366dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="226dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Button
+                android:id="@+id/addPriority"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:backgroundTint="#BBBDE1"
+                android:rotationX="-2"
+                android:text="Add Priority Level"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:layout_width="496dp"
+                android:layout_height="28dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#BBBDE1"
+                android:text="Add Due Date or Start Date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <Button
+                android:id="@+id/remove"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:backgroundTint="#BBBDE1"
+                android:text="Remove Task"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="87dp"
+            android:layout_marginBottom="69dp"
+            android:background="#BBBDE1"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="366dp"
+                android:layout_height="72dp"
+                android:text="@{individualTaskViewModel.text}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
