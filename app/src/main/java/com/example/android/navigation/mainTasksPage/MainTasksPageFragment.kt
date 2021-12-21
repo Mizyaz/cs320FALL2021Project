@@ -42,13 +42,7 @@ class MainTasksPageFragment : Fragment() {
         val adapter = MyItemRecyclerViewAdapter()
         binding.taskList.adapter = adapter
 
-        mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapter.submitList(it)
-            }
-        })
-
-        val fab = binding.floatingActionButton
+        val fab = binding.addTask
 
         fab.setOnClickListener {
 
@@ -57,11 +51,39 @@ class MainTasksPageFragment : Fragment() {
             editText?.setText(" ")
         }
 
-        val fab2 = binding.floatingActionButton2
+        val fab2 = binding.removeAllTasks
 
         fab2.setOnClickListener {
 
             mainTasksPageFragmentViewModel.onClickFAB2()
+
+        }
+
+        val fabFilter = binding.filterByImportance
+
+        fabFilter.setOnClickListener {
+
+            mainTasksPageFragmentViewModel.onClickFABFilter()
+
+            mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
+                it?.let {
+                    adapter.submitList(it)
+                }
+            })
+
+        }
+
+        val fabDisplay = binding.displayAllTasks
+
+        fabDisplay.setOnClickListener {
+
+            mainTasksPageFragmentViewModel.onClickFABDisplay()
+
+            mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
+                it?.let {
+                    adapter.submitList(it)
+                }
+            })
 
         }
 

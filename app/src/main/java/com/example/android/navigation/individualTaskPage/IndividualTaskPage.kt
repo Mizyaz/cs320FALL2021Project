@@ -51,6 +51,18 @@ class IndividualTaskPage : Fragment() {
 
         }
 
+        binding.addDate.setOnClickListener {
+
+            individualTaskPageViewModel.onAddStartDueDate()
+
+        }
+
+        binding.addPriority.setOnClickListener {
+
+            individualTaskPageViewModel.onAddPriority()
+
+        }
+
         return binding.root
     }
 

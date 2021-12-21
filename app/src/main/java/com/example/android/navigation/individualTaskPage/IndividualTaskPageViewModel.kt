@@ -51,4 +51,20 @@ class IndividualTaskPageViewModel(
 
     }
 
+    fun onAddPriority(){
+
+        task.PriorityLevel = "important"
+        update(task)
+
+    }
+
+    fun onAddStartDueDate(){
+
+        task.StartDate = "12/19/2021"
+        task.EndDate = "25/19/2021"
+
+        update(task)
+
+    }
+
 }

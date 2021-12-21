@@ -13,7 +13,7 @@ class MainTasksPageFragmentViewModel(
 
     private var currentTask = MutableLiveData<Task?>()
 
-    val tasks = database.getAllTasks()
+    var tasks = database.getAllTasks()
 
     init {
         initializeTask()
@@ -39,7 +39,7 @@ class MainTasksPageFragmentViewModel(
         database.update(task)
     }
 
-    private suspend fun clear() {
+    private fun clear() {
         database.clear()
     }
 
@@ -60,6 +60,20 @@ class MainTasksPageFragmentViewModel(
         viewModelScope.launch {
             onClear()
         }
+    }
+
+    fun onClickFABFilter() {
+        viewModelScope.launch {
+            tasks = database.getAllTasksFilteredByPriority("important")
+        }
+    }
+
+    fun onClickFABDisplay() {
+
+        viewModelScope.launch {
+            tasks = database.getAllTasks()
+        }
+
     }
 
     /**

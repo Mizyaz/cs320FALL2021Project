@@ -27,8 +27,27 @@ fun formatTasks(tasks: List<Task>, resources: Resources): Spanned {
 fun formatTask(task: Task): Spanned {
     val sb = StringBuilder()
     sb.apply {
+        append("<br>")
+        append("Description: ")
+        append("\t${task.Descryption}<br>")
+        append("<br>")
+    }
+    if(!task.StartDate.equals(" ")) {
+        sb.apply {
+            append("Start Date: ")
+            append("\t${task.StartDate}<br>")
             append("<br>")
-            append("\t${task.Descryption}<br>")
+            append("End Date: ")
+            append("\t${task.EndDate}<br>")
+            append("<br>")
+        }
+    }
+    if(!task.PriorityLevel.equals(" ")){
+        sb.apply {
+            append("Priority Level: ")
+            append("\t${task.PriorityLevel}<br>")
+            append("<br>")
+        }
     }
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         return Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)

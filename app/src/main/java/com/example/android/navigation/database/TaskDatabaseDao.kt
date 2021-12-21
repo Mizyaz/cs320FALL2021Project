@@ -72,4 +72,8 @@ interface TaskDatabaseDao {
 
     @Query("DELETE FROM MOCK_DATA WHERE Id = :key")
     fun remove(key: Long)
+
+    @Query("SELECT * FROM MOCK_DATA WHERE priority_level = :priority ORDER BY Id DESC ")
+    fun getAllTasksFilteredByPriority(priority: String): LiveData<List<Task>>
+
 }

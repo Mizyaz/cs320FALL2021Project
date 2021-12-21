@@ -32,6 +32,15 @@ data class Task(
         @ColumnInfo(name = "descryption")
         var Descryption: String = " ",
 
+        @ColumnInfo(name = "start_date")
+        var StartDate: String = " ",
+
+        @ColumnInfo(name = "end_date")
+        var EndDate: String = " ",
+
+        @ColumnInfo(name = "priority_level")
+        var PriorityLevel: String = " "
+
 )
 {
         fun toHTMLString(): Spanned = formatTask(this)
