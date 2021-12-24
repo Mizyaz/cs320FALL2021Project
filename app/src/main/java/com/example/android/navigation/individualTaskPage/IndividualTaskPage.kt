@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -61,18 +62,24 @@ class IndividualTaskPage : Fragment() {
         binding.important.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("important")
+            Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_LONG).show()
+            binding.mainLayout.setBackgroundColor(0xFF0000)
 
         }
 
         binding.normal.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("normal")
+            Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_LONG).show()
+            binding.mainLayout.setBackgroundColor(0x00FF00)
 
         }
 
         binding.light.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("light")
+            Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_LONG).show()
+            binding.mainLayout.setBackgroundColor(0xFFFF00)
 
         }
         binding.importanceLevelButton.setOnClickListener{
