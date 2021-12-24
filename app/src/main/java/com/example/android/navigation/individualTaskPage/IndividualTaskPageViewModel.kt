@@ -4,6 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.example.android.navigation.database.Task
 import com.example.android.navigation.database.TaskDatabaseDao
+import java.time.DayOfWeek
+import java.time.Month
+import java.time.Year
 
 class IndividualTaskPageViewModel(
         val database: TaskDatabaseDao,
@@ -54,9 +57,9 @@ class IndividualTaskPageViewModel(
 
     }
 
-    fun onAddStartDueDate(){
+    fun onAddStartDueDate(year:Year,month: Month,dayOfWeek: DayOfWeek){
 
-        task.StartDate = "12/19/2021"
+        task.StartDate = "${dayOfWeek.toString()}/${month.toString()}/${year.toString()}"
         task.EndDate = "25/19/2021"
 
         update(task)
