@@ -1,11 +1,10 @@
-package com.example.android.navigation.individualTaskPage
-
-import org.junit.jupiter.api.Assertions.*
+package com.example.android.navigation
 
 internal class IndividualTaskPageTest {
 
     @org.junit.jupiter.api.Test
     fun getBinding() {
+
 
     }
 
@@ -15,6 +14,9 @@ internal class IndividualTaskPageTest {
 
     @org.junit.jupiter.api.Test
     fun onCreateView() {
+
+        val binding = getBinding()
+
     }
 
     @org.junit.jupiter.api.Test
