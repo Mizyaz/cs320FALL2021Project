@@ -65,12 +65,6 @@ class IndividualTaskPage : Fragment() {
 
         }
 
-
-
-
-
-        }
-
         binding.addDate.setOnClickListener {
 
             individualTaskPageViewModel.onAddStartDueDate()
@@ -81,7 +75,7 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onAddPriority("important")
             Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFF0000)
+            binding.mainLayout.setBackgroundColor(getResources().getColor(R.color.red))
 
         }
 
@@ -89,7 +83,7 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onAddPriority("normal")
             Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0x00FF00)
+            binding.mainLayout.setBackgroundColor(getResources().getColor(R.color.green))
 
         }
 
@@ -97,7 +91,7 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onAddPriority("light")
             Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFFFF00)
+            binding.mainLayout.setBackgroundColor(getResources().getColor(R.color.yellow))
 
         }
         binding.importanceLevelButton.setOnClickListener{
