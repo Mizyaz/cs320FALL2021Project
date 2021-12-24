@@ -1,5 +1,7 @@
 package com.example.android.navigation.individualTaskPage
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -48,8 +50,24 @@ class IndividualTaskPage : Fragment() {
         }
 
         binding.remove.setOnClickListener {
+            var builder = AlertDialog.Builder(activity)
+            builder.setTitle("Confirm Delete")
+            builder.setMessage("Are you sure about removing the task ?")
+            builder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
+                individualTaskPageViewModel.onClickRemove()
+                dialog.cancel()
+            })
+            builder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+                dialog.cancel()
+            })
+            var alert = builder.create()
+            alert.show()
 
-            individualTaskPageViewModel.onClickRemove()
+        }
+
+
+
+
 
         }
 
