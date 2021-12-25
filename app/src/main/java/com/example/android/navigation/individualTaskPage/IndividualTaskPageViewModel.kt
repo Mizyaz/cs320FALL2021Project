@@ -57,7 +57,7 @@ class IndividualTaskPageViewModel(
 
     }
 
-    fun onAddStartDueDate(year:Year,month: Month,dayOfWeek: DayOfWeek){
+    fun onAddStartDueDate(year:Int,month: Int,dayOfWeek: Int){
 
         task.StartDate = "${dayOfWeek.toString()}/${month.toString()}/${year.toString()}"
         task.EndDate = "25/19/2021"

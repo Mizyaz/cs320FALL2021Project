@@ -5,12 +5,12 @@ import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.android.navigation.R
@@ -68,8 +68,6 @@ class IndividualTaskPage : Fragment() {
             var alert = builder.create()
             alert.show()
 
-
-
         }
 
         val calendar = Calendar.getInstance()
@@ -78,10 +76,11 @@ class IndividualTaskPage : Fragment() {
         val start_day = calendar.get(Calendar.DAY_OF_MONTH)
 
         binding.addDate.setOnClickListener {
-            val dpd = DatePickerDialog(this,DatePickerDialog.OnDateSetListener{view ,mYear,mMonth,mDay ->
+            val dpd = DatePickerDialog(context!!,DatePickerDialog.OnDateSetListener{view ,mYear,mMonth,mDay ->
                 individualTaskPageViewModel.onAddStartDueDate(mYear,mMonth,mDay)
             },start_year,start_month,start_day)
 
+            dpd.show()
 
         }
 
