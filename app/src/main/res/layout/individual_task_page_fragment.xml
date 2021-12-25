@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_layout"
-        android:layout_width="498dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animationCache="true"
         android:background="#8777B1">
@@ -30,14 +30,16 @@
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.926"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.111" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="366dp"
             android:layout_height="350dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="225dp"
             android:layout_marginEnd="108dp"
             android:layout_marginBottom="226dp"
@@ -58,46 +60,47 @@
                     android:id="@+id/importance_level_button"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:text="Add Importance Level"
-                    android:background="#03A9F4" />
+                    android:background="#03A9F4"
+                    android:text="Add Importance Level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal">
-                <Button
-                    android:id="@+id/light"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:background="#FFEB3B"
-                    android:text="light"
-                    android:visibility="invisible" />
 
-                <Button
-                    android:id="@+id/normal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="normal"
-                    android:background="#4CAF50"
-                    android:visibility="invisible"/>
+                    <Button
+                        android:id="@+id/light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#FFEB3B"
+                        android:text="light"
+                        android:visibility="invisible" />
 
-                <Button
-                    android:id="@+id/important"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:text="important"
-                    android:background="#F44336"
-                    android:visibility="invisible"/>
+                    <Button
+                        android:id="@+id/normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#4CAF50"
+                        android:text="normal"
+                        android:visibility="invisible" />
+
+                    <Button
+                        android:id="@+id/important"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#F44336"
+                        android:text="important"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="496dp"
-                android:layout_height="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -127,8 +130,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="411dp"
-            android:layout_height="72dp"
+            android:layout_width="370dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="45dp"
             android:layout_marginTop="84dp"
             android:layout_marginEnd="87dp"
             android:layout_marginBottom="69dp"
@@ -142,8 +146,8 @@
 
             <CheckBox
                 android:id="@+id/checkBox2"
-                android:layout_width="366dp"
-                android:layout_height="72dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="@{individualTaskViewModel.text}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </LinearLayout>
