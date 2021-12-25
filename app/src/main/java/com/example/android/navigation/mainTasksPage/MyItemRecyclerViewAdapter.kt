@@ -27,7 +27,7 @@ class MyItemRecyclerViewAdapter : ListAdapter<Task, MyItemRecyclerViewAdapter.Vi
 
         holder.binding.displayButton.setOnClickListener{ view ->
 
-            val direction = MainTasksPageFragmentDirections.actionMainTasksPageFragmentToIndividualTaskPage(holder.binding.task?.Id.toString())
+            val direction = MainTasksPageFragmentDirections.actionMainTasksPageFragmentToIndividualTaskPage().setTaskId(holder.binding.task?.Id.toString())
             view.findNavController().navigate(direction)
 
         }

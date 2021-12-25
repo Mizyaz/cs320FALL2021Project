@@ -13,13 +13,19 @@ class IndividualTaskPageViewModel(
     application: Application, key: Long
 ) : AndroidViewModel(application) {
 
-    val task : Task
+    var task : Task
     var text : String
 
 
     init {
 
-        task = database.get(key)!!
+        if(key.equals(null) && database.get(key)?.equals(null) == true) {
+            task = database.get(key)!!
+        } else {
+            task = Task()
+            insert(task)
+        }
+
         text = task.Descryption
 
     }
