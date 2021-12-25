@@ -39,8 +39,10 @@ data class Task(
         var EndDate: String = " ",
 
         @ColumnInfo(name = "priority_level")
-        var PriorityLevel: String = " "
+        var PriorityLevel: String = " ",
 
+        @ColumnInfo(name = "archived")
+        var archived: Boolean = false
 )
 {
         fun toHTMLString(): Spanned = formatTask(this)
