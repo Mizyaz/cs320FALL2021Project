@@ -9,8 +9,8 @@ import java.time.Month
 import java.time.Year
 
 class IndividualTaskPageViewModel(
-        val database: TaskDatabaseDao,
-        application: Application, key: Long
+    val database: TaskDatabaseDao,
+    application: Application, key: Long
 ) : AndroidViewModel(application) {
 
     val task : Task
