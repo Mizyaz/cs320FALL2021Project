@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.android.navigation.R
 import com.example.android.navigation.database.TaskDatabase
@@ -36,8 +36,13 @@ class IndividualTaskPage : Fragment() {
         // Create an instance of the ViewModel Factory.
         val dataSource = TaskDatabase.getInstance(application).taskDatabaseDao
 
+        var taskId = args.taskId
+
+        if(taskId.isNullOrBlank())
+            taskId = 1.toString()
+        
         val viewModelFactory =
-            IndividualTaskPageViewModelFactory(dataSource, application, args.taskId.toLong())
+            IndividualTaskPageViewModelFactory(dataSource, application, taskId.toLong())
 
         // Get a reference to the ViewModel associated with this fragment.
         val individualTaskPageViewModel =
@@ -49,7 +54,7 @@ class IndividualTaskPage : Fragment() {
 
         val currentTaskDescription: String = individualTaskPageViewModel.text
 
-        Log.d("TAG", args.taskId)
+        args.taskId?.let { Log.d("TAG", it) }
         currentTaskDescription.let {
             Log.d("TAG", it)
         }
@@ -71,45 +76,68 @@ class IndividualTaskPage : Fragment() {
         }
 
         val calendar = Calendar.getInstance()
-        val start_year = calendar.get(Calendar.YEAR)
-        val start_month = calendar.get(Calendar.MONTH)
-        val start_day = calendar.get(Calendar.DAY_OF_MONTH)
+        var end_year = calendar.get(Calendar.YEAR)
+        var end_month = calendar.get(Calendar.MONTH)
+        var end_day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        var start_year = calendar.get(Calendar.YEAR)
+        var start_month = calendar.get(Calendar.MONTH)
+        var start_day = calendar.get(Calendar.DAY_OF_MONTH)
 
         binding.addDate.setOnClickListener {
+
             val dpd = DatePickerDialog(context!!,DatePickerDialog.OnDateSetListener{view ,mYear,mMonth,mDay ->
-                individualTaskPageViewModel.onAddStartDueDate(mYear,mMonth,mDay)
-            },start_year,start_month,start_day)
+
+                individualTaskPageViewModel.onAddStartDueDate(start_year, start_month, start_day, mYear,mMonth,mDay)
+
+                end_day = mDay
+                end_month = mMonth
+                end_year = mYear
+                binding.displayDate.setText(end_day.toString() + "/" + end_month.toString() + " /" + end_year.toString())
+            },end_year,end_month,end_day)
+
 
             dpd.show()
-
         }
 
         binding.important.setOnClickListener {
             individualTaskPageViewModel.onAddPriority("important")
-            Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFF0000)
+            Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.red))
 
         }
 
         binding.normal.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("normal")
-            Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0x00FF00)
+            Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.yellow))
 
         }
 
         binding.light.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("light")
-            Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFFFF00)
+            Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.green))
 
         }
         binding.importanceLevelButton.setOnClickListener{
             binding.light.visibility = View.VISIBLE
             binding.normal.visibility = View.VISIBLE
             binding.important.visibility = View.VISIBLE
+        }
+
+        binding.checkBox2.setOnClickListener {
+
+            individualTaskPageViewModel.onClickArchive(binding.checkBox2.isChecked)
+            if(binding.checkBox2.isChecked) {
+                Toast.makeText(context, "Successfully archived the task", Toast.LENGTH_SHORT).show()
+            } else {
+
+                Toast.makeText(context, "Successfully unarchived the task", Toast.LENGTH_SHORT).show()
+
+            }
         }
 
         return binding.root

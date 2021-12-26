@@ -1,6 +1,7 @@
 package com.example.android.navigation.mainTasksPage
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.android.navigation.database.Task
 import com.example.android.navigation.database.TaskDatabaseDao
@@ -43,7 +44,7 @@ class MainTasksPageFragmentViewModel(
         database.clear()
     }
 
-    fun onClickFAB(textInput: String) {
+    fun addTask(textInput: String) {
         viewModelScope.launch {
 
             val newTask = Task()
@@ -56,22 +57,32 @@ class MainTasksPageFragmentViewModel(
         }
     }
 
-    fun onClickFAB2() {
+    fun removeAll() {
         viewModelScope.launch {
             onClear()
         }
     }
 
-    fun onClickFABFilter() {
+    fun filter() {
         viewModelScope.launch {
             tasks = database.getAllTasksFilteredByPriority("important")
         }
     }
 
-    fun onClickFABDisplay() {
+    fun displayAll() {
 
         viewModelScope.launch {
             tasks = database.getAllTasks()
+        }
+
+    }
+
+    fun showArchived() {
+
+        viewModelScope.launch {
+
+            tasks = database.getAllTasksFilteredByArchived(true)
+
         }
 
     }

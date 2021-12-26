@@ -30,22 +30,22 @@
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.058" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="315dp"
-            android:layout_height="351dp"
+            android:layout_width="366dp"
+            android:layout_height="350dp"
             android:layout_marginTop="225dp"
+            android:layout_marginEnd="108dp"
             android:layout_marginBottom="226dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/importance_level_button"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
@@ -54,11 +54,17 @@
                 android:layout_height="80dp"
                 android:orientation="vertical">
 
+                <Button
+                    android:id="@+id/importance_level_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="Add Importance Level"
+                    android:background="#03A9F4" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal">
-
                     <Button
                         android:id="@+id/light"
                         android:layout_width="wrap_content"
@@ -73,24 +79,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:background="#4CAF50"
                         android:text="normal"
-                        android:visibility="invisible" />
+                        android:background="#4CAF50"
+                        android:visibility="invisible"/>
 
                     <Button
                         android:id="@+id/important"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:background="#F44336"
                         android:text="important"
-                        android:visibility="invisible" />
+                        android:background="#F44336"
+                        android:visibility="invisible"/>
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="496dp"
                 android:layout_height="28dp"
                 android:orientation="vertical">
 
@@ -107,7 +113,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"
+                android:background="@android:color/holo_orange_light">
+
+                <TextView
+                    android:id="@+id/displayDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Task due date  :"
+                    android:textSize="30dp" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/remove"
@@ -121,37 +136,26 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="374dp"
-            android:layout_height="71dp"
-            android:layout_marginStart="105dp"
+            android:layout_width="411dp"
+            android:layout_height="72dp"
             android:layout_marginTop="84dp"
             android:layout_marginEnd="87dp"
             android:layout_marginBottom="69dp"
             android:background="#BBBDE1"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="@id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.344"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
                 android:id="@+id/checkBox2"
-                android:layout_width="364dp"
-                android:layout_height="match_parent"
+                android:layout_width="366dp"
+                android:layout_height="72dp"
                 android:text="@{individualTaskViewModel.text}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/importance_level_button"
-            android:layout_width="317dp"
-            android:layout_height="43dp"
-            android:background="#03A9F4"
-            android:text="Add Importance Level"
-            tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="169dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

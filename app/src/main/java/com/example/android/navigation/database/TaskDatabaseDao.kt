@@ -22,51 +22,24 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
-
-/**
- * Defines methods for using the SleepNight class with Room.
- */
 @Dao
 interface TaskDatabaseDao {
 
     @Insert
     fun insert(task: Task)
 
-    /**
-     * When updating a row with a value already set in a column,
-     * replaces the old value with the new one.
-     *
-     * @param task new value to write
-     */
     @Update
     fun update(task: Task)
 
-    /**
-     * Selects and returns the row that matches the supplied start time, which is our key.
-     *
-     * @param key index to match
-     */
     @Query("SELECT * from MOCK_DATA WHERE Id = :key")
     fun get(key: Long): Task?
-    /**
-     * Deletes all values from the table.
-     *
-     * This does not delete the table, only its contents.
-     */
+
     @Query("DELETE FROM MOCK_DATA")
     fun clear()
 
-    /**
-     * Selects and returns all rows in the table,
-     *
-     * sorted by index in descending order.
-     */
     @Query("SELECT * FROM MOCK_DATA ORDER BY Id DESC")
     fun getAllTasks(): LiveData<List<Task>>
 
-    /**
-     * Selects and returns the latest task.
-     */
     @Query("SELECT * FROM MOCK_DATA ORDER BY Id DESC LIMIT 1")
     fun getCurrentTask(): Task?
 
@@ -75,5 +48,8 @@ interface TaskDatabaseDao {
 
     @Query("SELECT * FROM MOCK_DATA WHERE priority_level = :priority ORDER BY Id DESC ")
     fun getAllTasksFilteredByPriority(priority: String): LiveData<List<Task>>
+
+    @Query("SELECT * FROM MOCK_DATA WHERE archived = :isArchived ORDER BY Id DESC ")
+    fun getAllTasksFilteredByArchived(isArchived : Boolean): LiveData<List<Task>>
 
 }
