@@ -59,6 +59,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
+                    android:background="#DDD5F6"
                     android:hint="@string/task_input_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,6 +126,8 @@
                 android:id="@+id/taskList"
                 android:layout_width="398dp"
                 android:layout_height="271dp"
+                android:background="#DDD5F6"
+                android:foregroundTint="#9491DF"
                 tools:listitem="@layout/fragment_main_tasks_page_list_item" />
         </LinearLayout>
 
