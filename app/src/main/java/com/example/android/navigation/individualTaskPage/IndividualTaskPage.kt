@@ -111,7 +111,7 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onAddPriority("normal")
             Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_SHORT).show()
-            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.yellow))
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.green))
 
         }
 
@@ -119,7 +119,7 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onAddPriority("light")
             Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_SHORT).show()
-            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.green))
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.yellow))
 
         }
         binding.importanceLevelButton.setOnClickListener{
