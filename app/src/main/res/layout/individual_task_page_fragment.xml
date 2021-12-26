@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_layout"
-        android:layout_width="498dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animationCache="true"
         android:background="#8777B1">
@@ -30,14 +30,15 @@
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="366dp"
-            android:layout_height="350dp"
+            android:layout_width="418dp"
+            android:layout_height="366dp"
             android:layout_marginTop="225dp"
             android:layout_marginEnd="108dp"
             android:layout_marginBottom="226dp"
@@ -56,15 +57,16 @@
 
                 <Button
                     android:id="@+id/importance_level_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="Add Importance Level"
-                    android:background="#03A9F4" />
+                    android:layout_width="411dp"
+                    android:layout_height="48dp"
+                    android:background="#BBBDE1"
+                    android:text="Add Importance Level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/light"
                         android:layout_width="wrap_content"
@@ -79,25 +81,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:text="normal"
                         android:background="#4CAF50"
-                        android:visibility="invisible"/>
+                        android:text="normal"
+                        android:visibility="invisible" />
 
                     <Button
                         android:id="@+id/important"
-                        android:layout_width="wrap_content"
+                        android:layout_width="143dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:text="important"
                         android:background="#F44336"
-                        android:visibility="invisible"/>
+                        android:text="important"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="496dp"
-                android:layout_height="28dp"
+                android:layout_height="20dp"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -113,13 +115,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:orientation="vertical"
-                android:background="@android:color/holo_orange_light">
+                android:background="@color/colorAccent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/displayDate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#BBBDE1"
+                    android:backgroundTint="#BBBDE1"
                     android:hint="Task due date  :"
                     android:textSize="30dp" />
             </LinearLayout>
@@ -128,7 +132,7 @@
                 android:id="@+id/remove"
                 style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="match_parent"
-                android:layout_height="78dp"
+                android:layout_height="79dp"
                 android:backgroundTint="#BBBDE1"
                 android:text="Remove Task"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
