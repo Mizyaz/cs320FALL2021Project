@@ -72,14 +72,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Show all tasks" />
+                    android:backgroundTint="#654985"
+                    android:foregroundTint="#F4E3E3"
+                    android:text="Show all tasks"
+                    android:textColor="#FFFFFF" />
 
                 <Button
                     android:id="@+id/FilterByImportance"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Filter By Importance" />
+                    android:backgroundTint="#654985"
+                    android:text="Filter By Importance"
+                    android:textColor="#FFFFFF" />
 
             </LinearLayout>
 
@@ -93,21 +98,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Confirm Task" />
+                    android:backgroundTint="#654985"
+                    android:text="Confirm Task"
+                    android:textColor="#FFFFFF" />
 
                 <Button
                     android:id="@+id/removeAllTasks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Remove all" />
+                    android:backgroundTint="#654985"
+                    android:text="Remove all"
+                    android:textColor="#FFFFFF" />
 
                 <Button
                     android:id="@+id/archived"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Archived" />
+                    android:backgroundTint="#654985"
+                    android:text="Archived"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
