@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animationCache="true"
-        android:background="#8777B1">
+        android:background="#DDD5F6">
 
         <ImageView
             android:id="@+id/logo"
@@ -59,8 +59,9 @@
                     android:id="@+id/importance_level_button"
                     android:layout_width="411dp"
                     android:layout_height="48dp"
-                    android:background="#BBBDE1"
-                    android:text="Add Importance Level" />
+                    android:background="#654985"
+                    android:text="Add Importance Level"
+                    android:textColor="#FFFFFF" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -106,36 +107,40 @@
 
             <Button
                 android:id="@+id/addDate"
-                android:layout_width="match_parent"
+                android:layout_width="404dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#BBBDE1"
+                android:backgroundTint="#654985"
                 android:text="Add Due Date or Start Date"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#FFFFFF" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="398dp"
                 android:layout_height="37dp"
                 android:background="@color/colorAccent"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/displayDate"
-                    android:layout_width="match_parent"
+                    android:layout_width="399dp"
                     android:layout_height="match_parent"
-                    android:background="#BBBDE1"
-                    android:backgroundTint="#BBBDE1"
+                    android:background="#654985"
+                    android:backgroundTint="#654985"
                     android:hint="Task due date  :"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
                     android:textSize="30dp" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/remove"
                 style="@android:style/Widget.DeviceDefault.Button"
-                android:layout_width="match_parent"
+                android:layout_width="405dp"
                 android:layout_height="79dp"
-                android:backgroundTint="#BBBDE1"
+                android:backgroundTint="#654985"
                 android:text="Remove Task"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
@@ -145,7 +150,7 @@
             android:layout_marginTop="84dp"
             android:layout_marginEnd="87dp"
             android:layout_marginBottom="69dp"
-            android:background="#BBBDE1"
+            android:background="#654985"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,8 +162,11 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="366dp"
                 android:layout_height="72dp"
+                android:background="#654985"
                 android:text="@{individualTaskViewModel.text}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
