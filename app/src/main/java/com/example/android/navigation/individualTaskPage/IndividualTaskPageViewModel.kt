@@ -1,6 +1,7 @@
 package com.example.android.navigation.individualTaskPage
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import com.example.android.navigation.database.Task
 import com.example.android.navigation.database.TaskDatabaseDao
@@ -19,7 +20,7 @@ class IndividualTaskPageViewModel(
 
     init {
 
-        if(key.equals(null) && database.get(key)?.equals(null) == true) {
+        if(!key.equals(null) && database.get(key)?.equals(null) != true) {
             task = database.get(key)!!
         } else {
             task = Task()
@@ -59,6 +60,7 @@ class IndividualTaskPageViewModel(
     fun onAddPriority(s: String) {
 
         task.PriorityLevel = s
+        Log.d("TAG", task.toString() + s)
         update(task)
 
     }

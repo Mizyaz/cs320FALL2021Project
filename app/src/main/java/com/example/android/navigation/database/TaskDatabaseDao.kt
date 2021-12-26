@@ -49,4 +49,7 @@ interface TaskDatabaseDao {
     @Query("SELECT * FROM MOCK_DATA WHERE priority_level = :priority ORDER BY Id DESC ")
     fun getAllTasksFilteredByPriority(priority: String): LiveData<List<Task>>
 
+    @Query("SELECT * FROM MOCK_DATA WHERE archived = :isArchived ORDER BY Id DESC ")
+    fun getAllTasksFilteredByArchived(isArchived : Boolean): LiveData<List<Task>>
+
 }

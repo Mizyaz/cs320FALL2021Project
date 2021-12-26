@@ -36,8 +36,13 @@ class IndividualTaskPage : Fragment() {
         // Create an instance of the ViewModel Factory.
         val dataSource = TaskDatabase.getInstance(application).taskDatabaseDao
 
+        var taskId = args.taskId
+
+        if(taskId.isNullOrBlank())
+            taskId = 1.toString()
+        
         val viewModelFactory =
-            IndividualTaskPageViewModelFactory(dataSource, application, args.taskId.toLong())
+            IndividualTaskPageViewModelFactory(dataSource, application, taskId.toLong())
 
         // Get a reference to the ViewModel associated with this fragment.
         val individualTaskPageViewModel =
@@ -49,7 +54,7 @@ class IndividualTaskPage : Fragment() {
 
         val currentTaskDescription: String = individualTaskPageViewModel.text
 
-        Log.d("TAG", args.taskId)
+        args.taskId?.let { Log.d("TAG", it) }
         currentTaskDescription.let {
             Log.d("TAG", it)
         }
@@ -97,24 +102,24 @@ class IndividualTaskPage : Fragment() {
 
         binding.important.setOnClickListener {
             individualTaskPageViewModel.onAddPriority("important")
-            Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFF0000)
+            Toast.makeText(context,"Successfully Selected Importance Level : Important",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.red))
 
         }
 
         binding.normal.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("normal")
-            Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0x00FF00)
+            Toast.makeText(context,"Successfully Selected Importance Level : Normal",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.yellow))
 
         }
 
         binding.light.setOnClickListener {
 
             individualTaskPageViewModel.onAddPriority("light")
-            Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_LONG).show()
-            binding.mainLayout.setBackgroundColor(0xFFFF00)
+            Toast.makeText(context,"Successfully Selected Importance Level : Light",Toast.LENGTH_SHORT).show()
+            binding.mainLayout.setBackgroundColor(resources.getColor(R.color.green))
 
         }
         binding.importanceLevelButton.setOnClickListener{
@@ -127,10 +132,10 @@ class IndividualTaskPage : Fragment() {
 
             individualTaskPageViewModel.onClickArchive(binding.checkBox2.isChecked)
             if(binding.checkBox2.isChecked) {
-                Toast.makeText(context, "Successfully archived the task", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Successfully archived the task", Toast.LENGTH_SHORT).show()
             } else {
 
-                Toast.makeText(context, "Successfully unarchived the task", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Successfully unarchived the task", Toast.LENGTH_SHORT).show()
 
             }
         }

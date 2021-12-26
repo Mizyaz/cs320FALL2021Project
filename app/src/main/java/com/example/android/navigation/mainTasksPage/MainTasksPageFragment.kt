@@ -1,6 +1,7 @@
 package com.example.android.navigation.mainTasksPage
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,28 +43,28 @@ class MainTasksPageFragment : Fragment() {
         val adapter = MyItemRecyclerViewAdapter()
         binding.taskList.adapter = adapter
 
-        val fab = binding.addTask
+        val addTaskButton = binding.addTask
 
-        fab.setOnClickListener {
+        addTaskButton.setOnClickListener {
 
             val editText : EditText? = binding.textInput.editText
-            mainTasksPageFragmentViewModel.onClickFAB(editText?.text.toString())
+            mainTasksPageFragmentViewModel.addTask(editText?.text.toString())
             editText?.setText(" ")
         }
 
-        val fab2 = binding.removeAllTasks
+        val removeAllTasksButton = binding.removeAllTasks
 
-        fab2.setOnClickListener {
+        removeAllTasksButton.setOnClickListener {
 
-            mainTasksPageFragmentViewModel.onClickFAB2()
+            mainTasksPageFragmentViewModel.removeAll()
 
         }
 
-        val fabFilter = binding.filterByImportance
+        val filterButton = binding.FilterByImportance
 
-        fabFilter.setOnClickListener {
+        filterButton.setOnClickListener {
 
-            mainTasksPageFragmentViewModel.onClickFABFilter()
+            mainTasksPageFragmentViewModel.filter()
 
             mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
                 it?.let {
@@ -73,11 +74,27 @@ class MainTasksPageFragment : Fragment() {
 
         }
 
-        val fabDisplay = binding.displayAllTasks
+        val displayAllTasksButton = binding.showAllTasks
 
-        fabDisplay.setOnClickListener {
+        displayAllTasksButton.setOnClickListener {
 
-            mainTasksPageFragmentViewModel.onClickFABDisplay()
+            mainTasksPageFragmentViewModel.displayAll()
+
+            mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
+                it?.let {
+                    adapter.submitList(it)
+                }
+            })
+
+            Log.d("TAG", "show")
+
+        }
+
+        val archivedButton = binding.archived
+
+        archivedButton.setOnClickListener {
+
+            mainTasksPageFragmentViewModel.showArchived()
 
             mainTasksPageFragmentViewModel.tasks.observe(viewLifecycleOwner, Observer {
                 it?.let {
@@ -89,8 +106,6 @@ class MainTasksPageFragment : Fragment() {
 
         val manager = GridLayoutManager(activity, 1)
         binding.taskList.layoutManager = manager
-
-
 
         return binding.root
     }
