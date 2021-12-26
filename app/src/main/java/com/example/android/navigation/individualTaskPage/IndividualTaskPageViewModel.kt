@@ -13,13 +13,19 @@ class IndividualTaskPageViewModel(
     application: Application, key: Long
 ) : AndroidViewModel(application) {
 
-    val task : Task
+    var task : Task
     var text : String
 
 
     init {
 
-        task = database.get(key)!!
+        if(key.equals(null) && database.get(key)?.equals(null) == true) {
+            task = database.get(key)!!
+        } else {
+            task = Task()
+            insert(task)
+        }
+
         text = task.Descryption
 
     }
@@ -57,12 +63,18 @@ class IndividualTaskPageViewModel(
 
     }
 
-    fun onAddStartDueDate(year:Int,month: Int,dayOfWeek: Int){
+    fun onAddStartDueDate(startYear:Int,startMonth: Int,startDayOfWeek: Int, year:Int,month: Int,dayOfWeek: Int){
 
-        task.StartDate = "${dayOfWeek.toString()}/${month.toString()}/${year.toString()}"
-        task.EndDate = "25/19/2021"
+        task.StartDate = "$startDayOfWeek/$startMonth/$startYear"
+        task.EndDate = "$dayOfWeek/$month/$year"
 
         update(task)
+
+    }
+
+    fun onClickArchive(isChecked: Boolean){
+
+        task.archived = isChecked
 
     }
 
